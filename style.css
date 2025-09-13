@@ -124,3 +124,21 @@ ul {
 .introduction-container {   
     flex: 1;
 }
+
+
+
+
+.dish-image-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 가로 3개 */
+    gap: 20px; /* 사진 사이 간격 */
+    max-width: 1000px; /* 갤러리 전체 최대 너비 */
+    margin: 40px auto; /* 가운데 정렬 */
+}
+
+.dish-image-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover; /* 사진 비율 유지하면서 잘림 */
+}
