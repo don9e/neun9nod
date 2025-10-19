@@ -165,3 +165,16 @@ img {
     text-align: center;
     gap: 0px;
 }
+
+
+/* 드레그 했을 때 색상 변경! */
+/* 모든 브라우저 공통 */
+::selection {
+  background: green; /* 원하는 배경색 */
+  color: white;      /* 선택 중 글자색 */
+}
+/* Firefox 전용 접두사 */
+::-moz-selection {
+  background: green;
+  color: white;
+}
