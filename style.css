@@ -1,0 +1,155 @@
+/* 🔹 전체 기본 설정 */
+body {
+  margin: 0; /* 브라우저 기본 여백 제거 */
+  font-family: sans-serif;
+  background: #ffffff; /* 바깥 영역 색 */
+}
+
+/* 🔹 모든 내용을 감싸는 컨테이너 */
+.container {
+  max-width: 1000px;   /* PC에서 콘텐츠 최대 폭 제한 */
+  margin: 0 auto;     /* 좌우 자동 → 가운데 정렬 */
+  padding: 20px;      /* 안쪽 여백 */
+  background: white;
+}
+
+/* 🔹 태블릿 이하 화면 */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+}
+
+/* 🔹 휴대폰 화면 */
+@media (max-width: 480px) {
+  .container {
+    padding: 12px; /* 모바일에서 좌우 여백 최소화 */
+  }
+}
+
+
+/* @@@@@ <a> 관련 @@@@@ */
+
+/* 방문 후 색 (보라색 대신 원하는 색) */
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: black;
+}
+
+
+.no-underline {
+  text-decoration: none;
+}
+
+
+/* <a> 가운데 정렬용 */
+.wrapper {
+  text-align: center;
+}
+
+
+/* @@@@@ 드레그 색 관련(사파리까지 대응) @@@@@ */
+::selection {
+  background: black;
+  color: white;
+}
+
+::-moz-selection { /* 파이어폭스 */
+  background: black;
+  color: white;
+}
+
+
+.highlight {
+  background-color: yellow;
+}
+
+
+
+/* @@@@@ 버튼 관련 @@@@@ */
+.button {
+  display: inline-block;
+  background-color: rgb(255, 255, 255);
+  color: green;
+  font-size: 13px;
+  padding: 0px 10px;
+  text-decoration: none; /* 밑줄 제거 */
+  border-radius: 3px;
+  border: 1px solid green;
+}
+
+.button:hover {
+  background-color: rgb(255, 255, 255);
+  color: green;
+}
+
+a.button {
+  background-color: white;
+  color: green;
+}
+
+#youtube {
+  background-color: rgb(255, 255, 255);
+  color: red;
+  border: 1px solid red;
+}
+
+
+
+/* @@@@@ 글과 이미지 가운데 정렬 관련 @@@@@ */
+.center {
+  text-align: center;
+}
+
+.center-img {
+  display: block;
+  margin: 0 auto;
+}
+
+
+/* @@@@@ 404 에러 페이지 관련 @@@@@ */
+
+/* 다른 페이지에는 영향을 주지 않고, 이 클래스가 붙은 이미지에만 적용됩니다. */
+.full-width-404 {
+  width: 100%;       /* 가로를 화면(부모)에 꽉 차게 */
+  height: auto;      /* 세로 비율 유지 */
+  display: block;    /* 이미지 하단의 미세한 간격 제거 */
+  margin: 0 auto;    /* 혹시 모르니 가운데 정렬 */
+  background-color: black;
+}
+
+/* 선택 사항: 모바일이나 PC에서 너무 커지는 걸 방지하고 싶다면? */
+.error-container {
+  width: 100%;
+  overflow: hidden; /* 가로 스크롤 방지 */
+  background-color: black;
+}
+
+
+
+
+
+
+
+
+.card {
+  width: 300px;
+  margin: 0 auto;   /* 가운데 정렬 핵심 */
+  text-align: left; /* 글은 왼쪽 정렬 유지 */
+}
+
+.card img {
+  width: 100%;
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.card p {
+  word-break: break-all;
+}

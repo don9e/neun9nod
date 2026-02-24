@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- 📱 모바일 화면 대응 필수 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>아름다운 것 (1)</title>
+
+  <!-- 🎨 외부 CSS 파일 연결 (이게 핵심) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <audio id="diary-bgm" loop>
+    <source src="images/music/Beautiful Thing.m4a" type="audio/mp4">
+  </audio>
+
+ <div class="container">
+    <a href="index.html" style="font-size: 14px;">back</a><br><br>
+
+    <h1 style="text-align:center;">아름다운 것</h1><br>
+
+    <div class="card">
+
+      <img src="images/beautiful_things/beautiful_things_2/30.JPEG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/beautiful_things/beautiful_things_2/29.JPEG" class="center-img" alt="?" width="300">
+      <p>1월 맛있는 것</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_2/28.JPEG" class="center-img" alt="?" width="300">
+      <p>광란의 새해!</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_2/27.JPEG" class="center-img" alt="?" width="300">
+      <p>12월 아름다운 것은 안방에 있다</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_2/26.JPEG" class="center-img" alt="?" width="300">
+      <p>12월 아름다운 것</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_2/25.JPEG" class="center-img" alt="?" width="300">
+      <p>크리스마스에 중국 친구들로부터 오리 머리를 받다! (매움)</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_2/24.JPG" class="center-img" alt="?" width="300">
+      <p>12월 아름다운 사진</p><br><br>
+    
+
+      <img src="images/beautiful_things/beautiful_things_2/22.JPEG" class="center-img" alt="?" width="300">
+      <p>맨 앞자리에 앉으면 지휘자님과 악수를 할 수 있다..!</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_2/21.JPEG" class="center-img" alt="?" width="300">
+      <p>1월 아름다운 사람</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_2/20.JPEG" class="center-img" alt="?" width="300">
+      <p>?!</p><br><br>
+      
+      <img src="images/beautiful_things/beautiful_things_2/19.JPEG" class="center-img" alt="?" width="300">
+      <p>마지막 모임..</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_2/18.JPEG" class="center-img" alt="?" width="300">
+      <br>
+      <img src="images/beautiful_things/beautiful_things_2/17.JPG" class="center-img" alt="?" width="300"><br>
+      
+      <img src="images/beautiful_things/beautiful_things_2/16.JPEG" class="center-img" alt="?" width="300">
+      <p>40분 동안 계속 아빠 옆자리에서 장기하처럼 장기하 노래 중얼중얼 노래부르기.</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_2/15.JPG" class="center-img" alt="?" width="300">
+      <p>1월 아름다운 것 은 내 방에 있다</p><br><br>
+    </div>
+
+     <div class="wrapper">
+        <b>[1]</b>&nbsp;
+        <a href="beautiful_things_2.html" style="font-size: 14px;">[2]</a>
+        
+    </div>
+    
+
+    <br><br><br><br><br><br>
+
+  </div>
+
+  <script>
+    // 사용자가 화면 아무 곳이나 클릭하면 음악 재생 시작
+    document.addEventListener('click', function() {
+        const audio = document.getElementById('diary-bgm');
+        if (audio.paused) {
+            audio.play();
+        }
+    }, { once: true }); // 딱 한 번만 실행되도록 설정
+  </script>
+
+</body>
+</html>

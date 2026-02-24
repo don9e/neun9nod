@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- 📱 모바일 화면 대응 필수 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>아름다운 것 (2)</title>
+
+  <!-- 🎨 외부 CSS 파일 연결 (이게 핵심) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <audio id="diary-bgm" loop>
+    <source src="images/music/Beautiful Thing.m4a" type="audio/mp4">
+  </audio>
+
+ <div class="container">
+    <a href="index.html" style="font-size: 14px;">back</a><br><br>
+
+    <h1 style="text-align:center;">아름다운 것</h1><br>
+
+    <div class="card">
+      <img src="images/beautiful_things/beautiful_things_1/14.JPG" class="center-img" alt="?" width="300">
+      <p>동렬과 학교에 놀러갔다. 새로 증축한 오이리트미실 구경하러. 높고 넓다.</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_1/13.JPG" class="center-img" alt="?" width="300"><br>
+      <img src="images/beautiful_things/beautiful_things_1/12.JPG" class="center-img" alt="?" width="300">
+      <p>교무실. Rudolf Steiner.</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_1/11.JPEG" class="center-img" alt="?" width="300">
+      <p>돈이 없는것 치고는 비싼책을 샀다. 계좌에 7천원이 남았다.</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_1/10.JPG" class="center-img" alt="?" width="300">
+      <p>2월. 아름다운 것</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_1/9.jpg" class="center-img" alt="?" width="300">
+      <p>흰 셔츠에 적자두 과즙이 튀었다. 하지만 용서할 수 있다.</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_1/8.jpg" class="center-img" alt="?" width="300">
+      <p>저기봐!</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_1/7.jpg" class="center-img" alt="?" width="300">
+      <p>프랑스 한달살이 시작!</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_1/6.JPEG" class="center-img" alt="?" width="300">
+      <p>크리스마스에 KFC에서..</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_1/5.jpg" class="center-img" alt="?" width="300"><br>
+      <img src="images/beautiful_things/beautiful_things_1/4.jpg" class="center-img" alt="?" width="300">
+      <p>도쿄 빈티지샵에서 산 옷. 원색에 강렬한..!</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_1/3.jpg" class="center-img" alt="?" width="300">
+      <p>rengedo에 모든 소품이 맘에 듦</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_1/2.jpg" class="center-img" alt="?" width="300">
+      <p>오타루는 눈으로 가-득하다.</p><br><br>
+      <img src="images/beautiful_things/beautiful_things_1/1.JPEG" class="center-img" alt="?" width="300">
+      <p>가을에 문화비축기지에서 캠코더와 나</p><br><br>
+    </div>
+
+     <div class="wrapper">
+        <a href="beautiful_things_1.html" style="font-size: 14px;"><b>[1]</b></a>
+        <b>[2]</b>&nbsp;
+        
+        
+    </div>
+    
+
+    <br><br><br><br><br><br>
+
+  </div>
+
+  <script>
+    // 사용자가 화면 아무 곳이나 클릭하면 음악 재생 시작
+    document.addEventListener('click', function() {
+        const audio = document.getElementById('diary-bgm');
+        if (audio.paused) {
+            audio.play();
+        }
+    }, { once: true }); // 딱 한 번만 실행되도록 설정
+  </script>
+
+</body>
+</html>
