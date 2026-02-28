@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- 📱 모바일 화면 대응 필수 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>크리스마스 중국</title>
+
+  <!-- 🎨 외부 CSS 파일 연결 (이게 핵심) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <!-- 🎵 음악 버튼 -->
+    <button id="musicToggleBtn">𝅘𝅥𝅮 Last Christmas - Wham!</button>
+
+    <audio id="bgMusic" loop>
+      <source src="images/music/Wham! - Last Christmas (Lyrics).m4a" type="audio/mp4">
+    </audio>
+
+    <!-- ⬆ 맨 위로 버튼 -->
+    <button id="scrollTopBtn">↑ top</button>
+
+
+ <div class="container">
+    <a href="random_thoughts.html" style="font-size: 14px;">back</a><br><br>
+
+    <h1 style="text-align:center; margin-bottom: 0px;">크리스마스 중국</h1>
+    <p style="text-align: center; color: gray; font-size: small;">2025.12</p><br><br>
+
+    <div class="card">
+      <img src="images/random_thoughts/rt2512_1/rt2512_1.JPG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/random_thoughts/rt2512_1/rt2512_02.JPG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/random_thoughts/rt2512_1/rt2512_03.JPG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/random_thoughts/rt2512_1/rt2512_04.JPG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/random_thoughts/rt2512_1/rt2512_05.JPG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/random_thoughts/rt2512_1/rt2512_06.JPG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/random_thoughts/rt2512_1/rt2512_07.JPG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/random_thoughts/rt2512_1/rt2512_08.JPG" class="center-img" alt="?" width="300">
+      <p>12월 중국 아름다운 것</p><br><br>
+      <img src="images/random_thoughts/rt2512_1/rt2512_09.JPG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+    
+
+      <img src="images/random_thoughts/rt2512_1/rt2512_10.JPG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/random_thoughts/rt2512_1/rt2512_11.JPG" class="center-img" alt="?" width="300">
+      <p>12월 중국 아름다운 것</p><br><br>
+      <img src="images/random_thoughts/rt2512_1/rt2512_12.JPG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      
+      <img src="images/random_thoughts/rt2512_1/rt2512_13.JPEG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/random_thoughts/rt2512_1/rt2512_14.JPG" class="center-img" alt="?" width="300">
+      <br>
+      <img src="images/random_thoughts/rt2512_1/rt2512_15.JPG" class="center-img" alt="?" width="300"><br>
+      
+      <img src="images/random_thoughts/rt2512_1/rt2512_16.JPG" class="center-img" alt="?" width="300">
+      <br>
+      <img src="images/random_thoughts/rt2512_1/rt2512_17.JPG" class="center-img" alt="?" width="300">
+      <p>나에게 자전거만 주어진다면 중국에서도 자유다!</p><br><br>
+
+      <img src="images/random_thoughts/rt2512_1/rt2512_18.JPG" class="center-img" alt="?" width="300">
+
+      <br>
+      <img src="images/random_thoughts/rt2512_1/rt2512_19.JPG" class="center-img" alt="?" width="300">
+      <p>크리스마스에 중국 친구들로부터 오리 머리를 받다! (매움)</p>
+
+
+      <p></p><br><br>
+     
+    </div>
+    
+
+    <br><br><br><br><br><br>
+
+  </div>
+
+<script>
+  const musicBtn = document.getElementById("musicToggleBtn");
+  const music = document.getElementById("bgMusic");
+  const scrollBtn = document.getElementById("scrollTopBtn");
+
+  let isPlaying = false;
+
+  // 🎵 음악 ON/OFF
+  musicBtn.addEventListener("click", () => {
+    if (isPlaying) {
+      music.pause();
+      musicBtn.textContent = "𝅘𝅥𝅮 Last Christmas - Wham! / off";
+    } else {
+      music.play();
+      musicBtn.textContent = "𝅘𝅥𝅮 Last Christmas - Wham! / on";
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // ⬆ 스크롤 감지해서 버튼 표시
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  });
+
+  // ⬆ 맨 위로 이동
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+
+</body>
+</html>

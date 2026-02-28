@@ -53,7 +53,7 @@ a:active {
 
 /* @@@@@ 드레그 색 관련(사파리까지 대응) @@@@@ */
 ::selection {
-  background: black;
+  background: green;
   color: white;
 }
 
@@ -78,12 +78,12 @@ a:active {
   padding: 0px 10px;
   text-decoration: none; /* 밑줄 제거 */
   border-radius: 3px;
-  border: 1px solid green;
+  border: 1px solid rgb(255, 255, 255);
 }
 
-.button:hover {
-  background-color: rgb(255, 255, 255);
-  color: green;
+#main:hover {
+  background-color: green;
+  color: white;
 }
 
 a.button {
@@ -93,9 +93,31 @@ a.button {
 
 #youtube {
   background-color: rgb(255, 255, 255);
-  color: red;
+  color: green;
+  border: 1px solid rgb(255, 255, 255);
+  
+}
+
+#youtube:hover {
+    /* 마우스를 올렸을 때 적용할 스타일 */
+    background-color: red;
+  color: white;
   border: 1px solid red;
 }
+
+#rt{
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0); 
+  border: 1px solid rgb(0, 0, 0);
+  
+}
+
+#rt:hover{
+   background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: 1px solid  rgb(0, 0, 0);
+}
+
 
 
 
@@ -153,3 +175,36 @@ a.button {
 .card p {
   word-break: break-all;
 }
+
+
+
+/* 🎵 음악 버튼 */
+#musicToggleBtn {
+  position: absolute; /* 스크롤 따라오지 않음 */
+  top: 15px;
+  right: 10px;
+  z-index: 1000;
+  padding: 1px 3px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  font-size: 12px;
+}
+
+/* ⬆ 맨 위로 버튼 */
+#scrollTopBtn {
+  position: fixed; /* 스크롤 따라옴 */
+  bottom: 30px;
+  right: 30px;
+  padding: 1px 3px;
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
+  cursor: pointer;
+  display: none; /* 처음엔 숨김 */
+  font-size: 12px;
+}
+
+
