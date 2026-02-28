@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- 📱 모바일 화면 대응 필수 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>이태원 참사 추모 파빌리온</title>
+
+  <!-- 🎨 외부 CSS 파일 연결 (이게 핵심) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  
+    <!-- ⬆ 맨 위로 버튼 -->
+    <button id="scrollTopBtn">↑ top</button>
+
+
+ <div class="container">
+    <a href="neun9_architecture.html" style="font-size: 14px;">back</a><br><br>
+
+    <h1 class="center">이태원 참사 추모 파빌리온</h1>
+
+    <p style="text-align: center; color: gray; font-size: small;">2022</p><br><br>
+
+
+
+      <img src="images/neun9_architecture/Itaewon_tragedy_pavilion/ITP_1.jpg" class="center-img"  alt="ITP_1" width="350"><br>
+
+             <p class="center">22년 10월 29일 토요일. 늦은 저녁 건축대학에서 설계를 하고 있었다. <br><br>
+            그날, 스튜디오에서 이태원 소식을 뉴스로 접했다. <br>
+            바닥에 쓰러진 사람들이 심폐소생술을 받는 장면이 믿기지 않았다. <br><br><br>
+
+            <b>다음 날부터 이태원역 입구 주변에는 국화꽃이 쌓이기 시작했다.</b> <br><br><br>
+
+            밖에서 보았을 때 화려하지만, <br>안은 면적인 요소들로 가득한
+            추모 파빌리온을 만들었다.</p>
+        
+
+
+    <div class="card">
+      <img src="images/neun9_architecture/Itaewon_tragedy_pavilion/ITP_8.jpg" class="center-img" alt="?" width="300"><br>
+      
+      <img src="images/neun9_architecture/Itaewon_tragedy_pavilion/ITP_10.jpg" class="center-img" alt="?" width="300"><br>
+      
+      <img src="images/neun9_architecture/Itaewon_tragedy_pavilion/ITP_9.jpg" class="center-img" alt="?" width="300"><br>
+      
+      <img src="images/neun9_architecture/Itaewon_tragedy_pavilion/ITP_11.jpg" class="center-img" alt="?" width="300"><br>
+      
+      <img src="images/neun9_architecture/Itaewon_tragedy_pavilion/ITP_2.jpg" class="center-img" alt="?" width="300"><br>
+      
+      <img src="images/neun9_architecture/Itaewon_tragedy_pavilion/ITP_3.jpg" class="center-img" alt="?" width="300"><br>
+
+      <img src="images/neun9_architecture/Itaewon_tragedy_pavilion/ITP_4.jpg" class="center-img" alt="?" width="300"><br>
+
+      <img src="images/neun9_architecture/Itaewon_tragedy_pavilion/ITP_5.jpg" class="center-img" alt="?" width="300"><br>
+      
+      <img src="images/neun9_architecture/Itaewon_tragedy_pavilion/ITP_6.jpg" class="center-img" alt="?" width="300"><br>
+      
+      <img src="images/neun9_architecture/Itaewon_tragedy_pavilion/ITP_7.jpg" class="center-img" alt="?" width="300">
+
+      <br><br>
+      
+    </div>
+    
+
+
+  </div>
+
+
+  <!-- =========================
+         4. 푸터
+    ========================= -->
+   
+    <footer id="pageFooter">
+    <p class="footer-source">
+        © 2026 don9e. All rights reserved.<br>
+        
+    </p>
+    </footer>
+
+
+<script>
+  
+  const scrollBtn = document.getElementById("scrollTopBtn");
+
+
+  // ⬆ 스크롤 감지해서 버튼 표시
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  });
+
+  // ⬆ 맨 위로 이동
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+
+</body>
+</html>

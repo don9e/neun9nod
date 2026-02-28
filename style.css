@@ -3,6 +3,7 @@ body {
   margin: 0; /* 브라우저 기본 여백 제거 */
   font-family: sans-serif;
   background: #ffffff; /* 바깥 영역 색 */
+
 }
 
 /* 🔹 모든 내용을 감싸는 컨테이너 */
@@ -207,4 +208,13 @@ a.button {
   font-size: 12px;
 }
 
+
+
+
+/* 저작권관련. footer */
+#pageFooter {
+  font-size: 12px;
+  opacity: 0.6;
+  text-align: center;
+}
 
