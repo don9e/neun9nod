@@ -218,3 +218,8 @@ a.button {
   text-align: center;
 }
 
+
+/* 방명록 줄내림 관련 */
+span {
+  word-break: break-all;
+}
