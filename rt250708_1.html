@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- 📱 모바일 화면 대응 필수 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>été</title>
+
+  <!-- 🎨 외부 CSS 파일 연결 (이게 핵심) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <!-- 🎵 음악 버튼 -->
+    <button id="musicToggleBtn">𝅘𝅥𝅮 혁오 - LOVE YA!</button>
+
+    <audio id="bgMusic" loop>
+      <source src="images/music/[Official Audio] HYUKOH(혁오) - LOVE YA!.m4a" type="audio/mp4">
+    </audio>
+
+    <!-- ⬆ 맨 위로 버튼 -->
+    <button id="scrollTopBtn">↑ top</button>
+
+
+ <div class="container">
+    <a href="random_thoughts.html" style="font-size: 14px;">back</a><br><br>
+
+    <h1 style="text-align:center; margin-bottom: 0px;">été</h1>
+    <p style="text-align: center; color: gray; font-size: small;">2025.07-08</p><br><br>
+
+    <div class="card">
+      <img src="images/random_thoughts/rt250708_1/rt250708_01.PNG" class="center-img" alt="?" width="300">
+      
+      <p></p><br><br>
+      
+     
+    </div>
+    
+
+
+  </div>
+
+
+  <!-- =========================
+         4. 푸터
+    ========================= -->
+   
+    <footer id="pageFooter">
+    <p class="footer-source">
+        © 2026 don9e. All rights reserved.<br>
+        
+    </p>
+    </footer>
+
+
+<script>
+  const musicBtn = document.getElementById("musicToggleBtn");
+  const music = document.getElementById("bgMusic");
+  const scrollBtn = document.getElementById("scrollTopBtn");
+
+  let isPlaying = false;
+
+  // 🎵 음악 ON/OFF
+  musicBtn.addEventListener("click", () => {
+    if (isPlaying) {
+      music.pause();
+      musicBtn.textContent = "𝅘𝅥𝅮 혁오 - LOVE YA! / off";
+    } else {
+      music.play();
+      musicBtn.textContent = "𝅘𝅥𝅮 혁오 - LOVE YA! / on";
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // ⬆ 스크롤 감지해서 버튼 표시
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  });
+
+  // ⬆ 맨 위로 이동
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+
+</body>
+</html>
