@@ -222,5 +222,4 @@ a.button {
 /* 방명록 줄내림 관련 */
 span {
   word-break: break-all;
-  overflow-wrap: anywhere;
 }
