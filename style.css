@@ -223,3 +223,36 @@ a.button {
 span {
   word-break: break-all;
 }
+
+
+
+
+
+
+
+
+
+/* 댓글 하나하나의 박스 스타일 */
+.comment-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.comment-item p {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.comment-item small {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+/* 버튼 호버 효과 */
+#submit-btn:hover {
+  background-color: #0056b3 !important;
+}

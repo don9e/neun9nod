@@ -21,7 +21,6 @@
 
 <h1 style="text-align:center;">방명록</h1><br><br>
 
-
 <span style="background-color: rgb(205, 181, 62);"> &nbsp; 20260304 / 이정민 / 새해복 많이 받으세요~ &nbsp;</span><!--
   
 --><span style="background-color: rgb(47, 157, 39);"> &nbsp; 20260303 / UNUN / 수동적으로 움직이지 말고 자동으로 하란 말이야 &nbsp;</span><!--
@@ -32,20 +31,59 @@
 
 --><span style="background-color: rgb(255, 135, 5);"> &nbsp; 20260301 / 先賢 / 반의적인 수동태에게 열렬한 성원을 &nbsp;</span><!--
 
---><span style="background-color: rgba(40, 137, 186, 0.733);"> &nbsp; 20260225 / YDG / 404 comment not found &nbsp;</span><!--
+ --><span style="background-color: rgba(40, 137, 186, 0.733);"> &nbsp; 20260225 / YDG / 404 comment not found &nbsp;</span><!--
 
---><span style="background-color: rgb(89, 238, 255);"> &nbsp; 20260225 / 김수민 / 김수민왔다갑니다요요&nbsp; </span><!--
+--><span style="background-color: rgb(89, 238, 255);"> &nbsp;20260225 / 김수민 / 김수민왔다갑니다요요&nbsp; </span><!--
 
- --><span style="background-color: rgb(250, 100, 140);">  &nbsp; 20260224 / 송재현 / 오늘은 비가 오네요 습하고 춥습니다.&nbsp;</span><!--
+ --><span style="background-color: rgb(250, 100, 140);">  &nbsp;20260224 / 송재현 / 오늘은 비가 오네요 습하고 춥습니다.&nbsp;</span><!--
 
  --><span style="background-color: rgb(100, 132, 190);"> &nbsp; 20260221 / 전설의 땅콩 / 나쁜짓은 즐겁다&nbsp; </span><!--
 
---><span style="background-color: rgb(255, 0, 0);"> &nbsp; 20260131 / 동구이 / 방명록 작성 바랍니다. &nbsp;</span><!--
+--><span style="background-color: rgb(255, 0, 0);"> &nbsp;20260131 / 동구이 / 방명록 작성 바랍니다. &nbsp;</span><!--
 
 -->
 <br><br>
 
+
+
+
+        <section id="comment-section" >
+        <h3>방명록 남기기</h3>
+        
+        <div class="comment-form" style="margin-bottom: 30px;">
+            <textarea id="comment-input" placeholder="날짜 / 이름(닉네임) / 방명록 작성" style="width: 100%; height: 80px; 
+            padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+            <button id="submit-btn" style="padding: 2px 20px; background-color: green; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            등록
+            </button>
+            <p style="font-size:12px;">※ 익명 작성을 원하실 경우 구글 로그아웃 후 작성바랍니다<br>
+                ※ 부적절한 방명록은 삭제될 수 있습니다.<br>
+            ※ 관리자만 삭제/수정 가능합니다.</p>
+        </div>
+
+        <hr>
+
+        <div id="comment-list">
+            <p style="color: #888;">댓글을 불러오는 중입니다...</p>
+        </div>
+        </section>
+
+
+
+
+
+        <div id="auth-section" style="margin-bottom: 20px;">
+            <button id="login-btn" style="padding: 2px; background-color: rgb(216, 216, 216); color: white; border: none; 
+            border-radius: 5px; cursor: pointer;">관리자 로그인</button>
+            <button id="logout-btn" style="display: none; padding: 10px; background-color: #f44336; color: white; 
+            border: none; border-radius: 5px; cursor: pointer;">로그아웃</button>
+            <span id="user-info" style="margin-left: 10px;"></span>
+        </div>
+
+
 </div>
+
+
 
 <footer id="pageFooter">
     <p class="footer-source">
@@ -54,8 +92,138 @@
     </p>
     </footer>
 
+
+
+<script type="module">
+  // 1, 2, 3번 설정 (생략 - 기존과 동일)
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCIlWINztvI87fOBOuryx9AsjCrUWT2xxo",
+    authDomain: "guestbook-f3957.firebaseapp.com",
+    projectId: "guestbook-f3957",
+    storageBucket: "guestbook-f3957.firebasestorage.app",
+    messagingSenderId: "942983366879",
+    appId: "1:942983366879:web:b19215aded6a895a68816a",
+    measurementId: "G-SL34JKHRJV"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+  const commentsCol = collection(db, 'comments');
+
+  let currentUserId = null;
+  let commentsData = []; 
+  const adminUid = "nvHBVm1GffWL4MJzq2x9Ngrz7dj1";
+
+  // --- [화면 그리기 전용 함수] ---
+  function renderUI() {
+    const listArea = document.getElementById('comment-list');
+    if (!listArea) return;
+    listArea.innerHTML = "";
+
+    commentsData.forEach((comment) => {
+      const data = comment.data;
+      const docId = comment.id;
+      const date = data.createdAt ? data.createdAt.toDate().toLocaleString() : "방금 전";
+
+      // [수정 1] 이제 일반 유저는 글 주인 확인을 하지 않고, 오직 "운영자"일 때만 버튼을 보여줍니다.
+      const canManage = (currentUserId === adminUid);
+
+      const commentHTML = `
+        <div class="comment-item" id="doc-${docId}" style="border-bottom: 1px solid #eee; padding: 10px;">
+          <p><strong>${data.author || '익명'}:</strong> ${data.content}</p>
+          <small>${date}</small>
+          ${canManage ? `
+            <button onclick="deleteComment('${docId}')" style="color:red; cursor:pointer; margin-left:10px;">삭제</button>
+            <button onclick="editComment('${docId}', '${data.content.replace(/'/g, "\\'")}')" style="color:blue; cursor:pointer; margin-left:5px;">수정</button>
+          ` : ''}
+        </div>
+      `;
+      listArea.innerHTML += commentHTML;
+    });
+  }
+
+  // --- [로그인/로그아웃 로직] ---
+  const loginBtn = document.getElementById('login-btn');
+  const logoutBtn = document.getElementById('logout-btn');
+
+  if (loginBtn) {
+    loginBtn.onclick = () => {
+      signInWithPopup(auth, provider).catch((error) => console.error("로그인 에러:", error));
+    };
+  }
+  if (logoutBtn) {
+    logoutBtn.onclick = () => signOut(auth);
+  }
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      currentUserId = user.uid;
+      if (loginBtn) loginBtn.style.display = "none";
+      if (logoutBtn) logoutBtn.style.display = "inline-block";
+    } else {
+      currentUserId = null;
+      if (loginBtn) loginBtn.style.display = "inline-block";
+      if (logoutBtn) logoutBtn.style.display = "none";
+    }
+    renderUI(); 
+  });
+
+  // --- [실제 데이터 동작] ---
+
+  // 댓글 저장
+  document.getElementById('submit-btn').onclick = async () => {
+    const input = document.getElementById('comment-input');
+    const text = input.value;
+
+    // [수정 2] "로그인이 필요합니다" 경고창을 지웠습니다. 누구나 등록 가능합니다.
+    if (text.trim() === "") return alert("내용을 입력해주세요!");
+
+    try {
+      await addDoc(commentsCol, {
+        content: text,
+        createdAt: serverTimestamp(),
+        // [수정 3] 로그인 안 한 사람은 uid를 null로 저장합니다.
+        uid: currentUserId || null,
+        author: (auth.currentUser && auth.currentUser.displayName) || "익명"
+      });
+      input.value = "";
+    } catch (e) { console.error("에러 발생: ", e); }
+  };
+
+  const q = query(commentsCol, orderBy('createdAt', 'desc'));
+  onSnapshot(q, (snapshot) => {
+    commentsData = snapshot.docs.map(doc => ({ id: doc.id, data: doc.data() }));
+    renderUI();
+  });
+
+  // 삭제/수정 함수 (동일)
+  window.deleteComment = async (id) => {
+    if (confirm("정말 삭제하시겠습니까?")) {
+      try { await deleteDoc(doc(db, "comments", id)); } 
+      catch (e) { alert("권한이 없습니다."); }
+    }
+  };
+
+  window.editComment = async (id, oldContent) => {
+    const newContent = prompt("수정할 내용을 입력하세요:", oldContent);
+    if (newContent && newContent !== oldContent) {
+      try { await updateDoc(doc(db, "comments", id), { content: newContent, updatedAt: serverTimestamp() }); } 
+      catch (e) { alert("권한이 없습니다."); }
+    }
+  };
+</script>
+
+
+
+
+
+
+
 </body>
-
 </html>
-
-
