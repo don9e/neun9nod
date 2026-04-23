@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- 📱 모바일 화면 대응 필수 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>목마른 계절의 비올라</title>
+
+  <!-- 🎨 외부 CSS 파일 연결 (이게 핵심) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <!-- 🎵 음악 버튼 -->
+    
+
+    <!-- ⬆ 맨 위로 버튼 -->
+    <button id="scrollTopBtn">↑ top</button>
+
+
+ <div class="container">
+    <a href="random_thoughts.html" style="font-size: 14px;">back</a><br><br>
+
+    <h1 style="text-align:center; margin-bottom: 0px;">목마른 계절의 비올라</h1>
+    <p style="text-align: center; color: gray; font-size: small;">2026.02</p><br><br>
+
+    <div class="card">
+     
+      <img src="images/random_thoughts/rt2602_1/rt2602_1-1.JPG" class="center-img" alt="?" width="300">
+      <p>목마른 계절 대출기록 카드</p><br><br>
+      <img src="images/random_thoughts/rt2602_1/rt2602_1-2.JPEG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/random_thoughts/rt2602_1/rt2602_1-3.PNG" class="center-img" alt="?" width="300"><br>
+      
+      <img src="images/random_thoughts/rt2602_1/rt2602_1-4.PNG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/random_thoughts/rt2602_1/rt2602_1-5.JPEG" class="center-img" alt="?" width="300">
+      <p>올 여름 슈바빙에 같이 갈 친구를 구하다..</p><br><br>
+      <img src="images/random_thoughts/rt2602_1/rt2602_1-6.JPG" class="center-img" alt="?" width="300">
+      <p>동렬이와 학교 교무실에서</p><br><br>
+      <img src="images/random_thoughts/rt2602_1/rt2602_1-7.JPG" class="center-img" alt="?" width="300">
+      <p>증축한 오이리트미실을 처음 가봤다</p><br><br>
+      <img src="images/random_thoughts/rt2602_1/rt2602_1-8.JPEG" class="center-img" alt="?" width="300">
+      <p>
+        2월에는 유난히 클래식 음악만을 들었다. 1월 말 공연이 끝나고의 여파이니라.. <br><br>특히 정경화의 브람스 바이올린 소나타 3번 2악장을
+        반복해서 들었다. 95년 부산에서의 리사이틀 영상이 그것이다. <br><br>빠른 것보다 느린게 좋고, 높은 음보다 낮은 음이 좋다. <br><br>3학년 때
+        바이올린이 아닌 첼로를 선택한 본능적 판단이 아직도 유효한 것 같다.
+      </p><br><br>
+      <img src="images/random_thoughts/rt2602_1/rt2602_1-9.JPG" class="center-img" alt="?" width="300">
+      <p>오래 사는 집</p><br><br>
+      <img src="images/random_thoughts/rt2602_1/rt2602_1-10.JPEG" class="center-img" alt="?" width="300">
+      <p>2월 아름다운 것</p><br><br>
+      
+     
+    </div>
+    
+
+
+  </div>
+
+
+  <!-- =========================
+         4. 푸터
+    ========================= -->
+   
+    <footer id="pageFooter">
+    <p class="footer-source">
+        © 2026 don9e. All rights reserved.<br>
+        
+    </p>
+    </footer>
+
+
+<script>
+  const musicBtn = document.getElementById("musicToggleBtn");
+  const music = document.getElementById("bgMusic");
+  const scrollBtn = document.getElementById("scrollTopBtn");
+
+  let isPlaying = false;
+
+  // 🎵 음악 ON/OFF
+  musicBtn.addEventListener("click", () => {
+    if (isPlaying) {
+      music.pause();
+      musicBtn.textContent = "𝅘𝅥𝅮 혁오 - LOVE YA! / off";
+    } else {
+      music.play();
+      musicBtn.textContent = "𝅘𝅥𝅮 혁오 - LOVE YA! / on";
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // ⬆ 스크롤 감지해서 버튼 표시
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  });
+
+  // ⬆ 맨 위로 이동
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+
+</body>
+</html>
