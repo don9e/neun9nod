@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- 📱 모바일 화면 대응 필수 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>3월의 말러</title>
+
+  <!-- 🎨 외부 CSS 파일 연결 (이게 핵심) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <!-- 🎵 음악 버튼 -->
+    <button id="musicToggleBtn">𝅘𝅥𝅮 Mahler Symphony No. 5 IV</button>
+
+    <audio id="bgMusic" loop>
+      <source src="images/music/Mahler Symphony No. 5 IV. Adagietto. Sehr langsam (“Decision to Leave”  Live at Seoul Arts....m4a" type="audio/mp4">
+    </audio>
+
+    <!-- ⬆ 맨 위로 버튼 -->
+    <button id="scrollTopBtn">↑ top</button>
+
+
+ <div class="container">
+    <a href="random_thoughts.html" style="font-size: 14px;">back</a><br><br>
+
+    <h1 style="text-align:center; margin-bottom: 0px;">3월의 말러</h1>
+    <p style="text-align: center; color: gray; font-size: small;">2026.03</p><br><br>
+
+    <div class="card">
+     
+      <img src="images/random_thoughts/rt2603_1/rt2603_1-2.JPG" class="center-img" alt="?" width="300">
+      <p>3월의 개강</p><br><br>
+      <img src="images/random_thoughts/rt2603_1/rt2603_1-3.JPG" class="center-img" alt="?" width="300">
+      <p>그 어둡고 칙칙한 공간에서 당신의 수수함은 횃불 같아요...</p><br><br>
+      <img src="images/random_thoughts/rt2603_1/rt2603_1-4.JPG" class="center-img" alt="?" width="300">
+      <p>3월 아름다운 우리집 거실 시계.(징으로 만든)</p><br><br>
+      <img src="images/random_thoughts/rt2603_1/rt2603_1-5.JPG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/random_thoughts/rt2603_1/rt2603_1-7.JPEG" class="center-img" alt="?" width="300">
+      <p>예술의 전당에서 말러 심포니 5번.
+      </p><br><br>
+      <img src="images/random_thoughts/rt2603_1/rt2603_1-6.JPG" class="center-img" alt="?" width="300">
+      <p>8시 공연 전에 로비에서 커피 한잔 마셨다. <br><br>이때 귀동냥으로 로열 콘세르트헤바우 오케스트라의 호른 
+      수석이 나온다는 사실을 엿들었다.</p><br><br>
+      <img src="images/random_thoughts/rt2603_1/rt2603_1-8.JPG" class="center-img" alt="?" width="300">
+      <p>
+      일주일 간격을 두고 롯데콘서트홀에서 말러 심포니를 또 들었다. <br><br>자체 말러의 달 3월.
+      </p><br><br>
+      <img src="images/random_thoughts/rt2603_1/rt2603_1-9.JPEG" class="center-img" alt="?" width="300">
+      <p>동생에게도 늘 최선을 다해야 한다. <br><br>져주고 그런거 없다.</p><br><br>
+      <img src="images/random_thoughts/rt2603_1/rt2603_1-10.JPG" class="center-img" alt="?" width="300">
+      <p>서울에서의 아침 식사</p><br><br>
+      <img src="images/random_thoughts/rt2603_1/rt2603_1-13.JPEG" class="center-img" alt="?" width="300">
+      <p>너히비 팀과 서교동에서 워크샵을 진행했다.</p><br><br>
+      <img src="images/random_thoughts/rt2603_1/rt2603_1-11.JPG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/random_thoughts/rt2603_1/rt2603_1-12.JPG" class="center-img" alt="?" width="300">
+      <p></p><br><br>
+      <img src="images/random_thoughts/rt2603_1/rt2603_1-14.JPG" class="center-img" alt="?" width="300">
+      <p>인사동 칼국시</p><br><br>
+      
+     
+    </div>
+    
+
+
+  </div>
+
+
+  <!-- =========================
+         4. 푸터
+    ========================= -->
+   
+    <footer id="pageFooter">
+    <p class="footer-source">
+        © 2026 don9e. All rights reserved.<br>
+        
+    </p>
+    </footer>
+
+
+<script>
+  const musicBtn = document.getElementById("musicToggleBtn");
+  const music = document.getElementById("bgMusic");
+  const scrollBtn = document.getElementById("scrollTopBtn");
+
+  let isPlaying = false;
+
+  // 🎵 음악 ON/OFF
+  musicBtn.addEventListener("click", () => {
+    if (isPlaying) {
+      music.pause();
+      musicBtn.textContent = "𝅘𝅥𝅮 Mahler Symphony No. 5 IV / off";
+    } else {
+      music.play();
+      musicBtn.textContent = "𝅘𝅥𝅮 Mahler Symphony No. 5 IV / on";
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // ⬆ 스크롤 감지해서 버튼 표시
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  });
+
+  // ⬆ 맨 위로 이동
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+
+</body>
+</html>
